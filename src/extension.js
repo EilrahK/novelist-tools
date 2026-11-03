@@ -1,11 +1,13 @@
 const vscode = require('vscode');
-const wordCounterStatus = require('./word-counter/word-counter.status')
+const statusWordCounterBarItem = require('./word-counter/status-word-counter.bar-item')
+const sessionWordCounterBarItem = require('./word-counter/session-word-counter.bar-item')
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	wordCounterStatus.activate(context)
+	statusWordCounterBarItem.activate(context)
+	sessionWordCounterBarItem.activate(context)
 }
 
 function deactivate() {}

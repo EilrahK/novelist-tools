@@ -1,9 +1,9 @@
-const vscode = require('vscode');
+const vscode = require('vscode')
+const { WORD_RE } = require('./word-counter.constants')
 
 let wordCounterBarItem
-const WORD_RE = /[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu;
 
-function activate({ subscriptions }) {
+function activate() {
 	wordCounterBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100)
 	vscode.workspace.onDidOpenTextDocument(refreshStatusBarItem)
 	vscode.workspace.onDidChangeTextDocument(refreshStatusBarItem)
@@ -21,9 +21,9 @@ function updateStatusBarItem(textEditor) {
 		return
 	}
 	const count = countWords(textEditor.document.getText())
-	let unit = 'mots'
+	let unit = 'words'
 	if (count === 1) {
-		unit = 'mot'
+		unit = 'word'
 	}
 	wordCounterBarItem.text = `${count} ${unit}`
 	if (!wordCounterBarItem._visible) {

@@ -3,7 +3,6 @@
 This extension bring some tools for the novelist.
 
 ## Goals
-- Session word counter
 - multiple directory, multiple files
 - Generator script
 - Characters
@@ -13,10 +12,8 @@ This extension bring some tools for the novelist.
 ## Features
 
  - Word counter : count words on markdown files
+ - Session word counter : Add a status bar item that lets you start a writing session, displaying the elapsed time and word count.
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 
