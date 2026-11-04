@@ -13,6 +13,39 @@
     "onLanguage:markdown"
   ],
   "main": "./src/extension.js",
+  "contributes": {
+		"commands": [
+			{
+				"command": "novelist-tools.session-word-counter",
+				"title": "Start/stop session counter"
+			}
+		],
+		"viewsContainers": {
+      "activitybar": [
+        {
+          "id": "novelistTools",
+          "title": "Novelist tools",
+          "icon": "$(book)"
+        }
+      ]
+    },
+    "views": {
+      "novelistTools": [
+        {
+          "id": "novelistToolsIndex",
+          "name": "Index",
+          "icon": "$(selection)",
+          "contextualTitle": "Index story"
+        }
+      ]
+    },
+    "configurationDefaults": {
+      "[markdown]": {
+        "editor.lineNumbers": "off",
+        "editor.wordWrap": "on"
+      }
+    }
+	},
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",

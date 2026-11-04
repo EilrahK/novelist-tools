@@ -1,5 +1,5 @@
-const { WORD_RE } = require('./word-counter.constants')
-const vscode = require('vscode');
+const {countWords} = require('./word-counter.utils')
+const vscode = require('vscode')
 
 const commandId = 'novelist-tools.session-word-counter'
 let state = 'NOT_STARTED'
@@ -10,6 +10,12 @@ let startingWordCount = 0
 let textEditor
 let wordsCount = 0
 
+/**
+ * Activate the command
+ * @param {Object} param0 the context
+ * @param {Function} writeFunction the function that allow writing somewhere
+ * @returns the command id
+ */
 function activate({ subscriptions }, writeFunction) {
 	subscriptions.push(vscode.commands.registerCommand(commandId, onClicked))
 	write = writeFunction
@@ -17,10 +23,17 @@ function activate({ subscriptions }, writeFunction) {
 	return commandId
 }
 
+/**
+ * Display the initial state.
+ */
 function init() {
 	write('Start writing')
 }
 
+/**
+ * Triggered when the command is launched.
+ * Toggle start/stop.
+ */
 function onClicked() {
 	if (state === 'NOT_STARTED') {
 		start()
@@ -29,6 +42,12 @@ function onClicked() {
 	}
 }
 
+/**
+ * Start the session.
+ * The current textEditor is registered as THE textEditor.
+ * Start the timer.
+ * Start watching what's typed.
+ */
 function start() {
 	duration = 0
 	wordsCount = 0
@@ -44,6 +63,10 @@ function start() {
 	}, 60000)
 }
 
+/**
+ * Method called when something is typed on the selected TextEditor.
+ * @param {Object} e 
+ */
 function onChangeText(e) {
 	if (state === 'RUNNING' && e.document.fileName === textEditor.document.fileName) {
 		let newCount = countWords(e.document.getText())
@@ -52,6 +75,9 @@ function onChangeText(e) {
 	}
 }
 
+/**
+ * Stop the running session, display a message with a resume.
+ */
 function stop() {
 	clearInterval(interval)
 	textEditor.show()
@@ -61,11 +87,18 @@ function stop() {
 	init()
 }
 
+/**
+ * Display the actual state on the bar.
+ */
 function displayState() {
 	const time = getReadableDuration()
 	write(`${time}|${wordsCount} words`)
 }
 
+/**
+ * Transform the actual duration on something readable.
+ * @returns {String}
+ */
 function getReadableDuration() {
 	const hours = parseInt(duration/60)
 	let time = ''
@@ -76,11 +109,9 @@ function getReadableDuration() {
 	return time
 }
 
-function countWords(text) {
-  return (text.match(WORD_RE) || []).length;
-}
-
-
+/**
+ * Command that manage the session word counter.
+ */
 module.exports = {
 	activate
 }
