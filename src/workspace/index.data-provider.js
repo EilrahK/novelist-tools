@@ -4,7 +4,11 @@ const {countWords} = require('../word-counter/word-counter.utils')
 /**
  * Provide the list of parts and chapters as a tree.
  */
-const indexDataProvider = class {
+const IndexDataProvider = class {
+
+    _onDidChangeTreeData  = new vscode.EventEmitter();
+    onDidChangeTreeData = this._onDidChangeTreeData.event;
+
     /**
      * Return the children of the element or the roots elements.
      * @param {Object|null} element 
@@ -48,6 +52,10 @@ const indexDataProvider = class {
         return undefined;
     }
 
+    refresh() {
+        this._onDidChangeTreeData.fire();
+    }
+
     /**
      * Read a workspace file.
      * @param {String} relativePath path relative to the workspace root
@@ -86,4 +94,4 @@ const indexDataProvider = class {
     }
 }
 
-module.exports = indexDataProvider
+module.exports = IndexDataProvider

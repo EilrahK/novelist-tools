@@ -18,6 +18,11 @@
 			{
 				"command": "novelist-tools.session-word-counter",
 				"title": "Start/stop session counter"
+			},
+			{
+				"command": "novelist-tools.refresh-index",
+				"title": "Refresh the workspace index",
+        "icon": "$(refresh)"
 			}
 		],
 		"viewsContainers": {
@@ -36,6 +41,21 @@
           "name": "Index",
           "icon": "$(selection)",
           "contextualTitle": "Index story"
+        },
+        {
+          "id": "novelistToolsCharacters",
+          "name": "Characters",
+          "icon": "$(account)",
+          "contextualTitle": "Characters"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "novelist-tools.refresh-index",
+          "when": "view == novelistToolsIndex",
+          "group": "navigation"
         }
       ]
     },

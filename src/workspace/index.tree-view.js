@@ -1,5 +1,6 @@
 const vscode = require('vscode')
-const indexDataProvider = require('./index.data-provider')
+const IndexDataProvider = require('./index.data-provider')
+const indexRefreshCommand = require('./index-refresh.command')
 
 /**
  * Activate the workspace tree view.
@@ -10,11 +11,11 @@ function activate(context) {
     if (!vscode.workspace.rootPath) {
         return
     }
-    const view = vscode.window.createTreeView('novelistToolsIndex', { treeDataProvider: new indexDataProvider(), showCollapseAll: true });
+    const indexDataProvider = new IndexDataProvider()
+	indexRefreshCommand.activate(context, indexDataProvider)
+    const view = vscode.window.createTreeView('novelistToolsIndex', { treeDataProvider: indexDataProvider, showCollapseAll: true });
     context.subscriptions.push(view);
 }
-
-
 
 module.exports = {
 	activate

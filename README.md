@@ -3,10 +3,9 @@
 This extension bring some tools for the novelist.
 
 ## Goals
-- Refresh index
-- Generator script (tab in new lines, tiret ...)
 - Characters
 - Character reckognition in the text (coloration)
+- Generator script (tab in new lines, tiret ...)
 - Repetition detector
 - Add comments and other syntax colorations
 - Click on chapter, go to it
