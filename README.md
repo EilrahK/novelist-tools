@@ -3,7 +3,7 @@
 This extension bring some tools for the novelist.
 
 ## Goals
-- Characters
+- Open Character file when clicking on it
 - Character reckognition in the text (coloration)
 - Generator script (tab in new lines, tiret ...)
 - Repetition detector
@@ -12,13 +12,16 @@ This extension bring some tools for the novelist.
 
 ## Features
 
- - Word counter : count words on markdown files
- - Session word counter : Add a status bar item that lets you start a writing session, displaying the elapsed time and word count.
- - Workspace (you must open a directory to make it work) :
-   - Each directory in the workspace is a part of your story
-   - Each directory must contain a .md file with the same name as the directory
-   - Directories are processed in alphabetical order
-   - Add text level 2 (##) to add chapter on the parts
+- Word counter : count words on markdown files
+- Session word counter : Add a status bar item that lets you start a writing session, displaying the elapsed time and word count.
+- Workspace (you must open a directory to make it work) :
+  - Each directory in the workspace is a part of your story
+  - Each directory must contain a .md file with the same name as the directory
+  - Directories are processed in alphabetical order
+  - Add text level 2 (##) to add chapter on the parts
+- Characters list :
+  - Handle `*.character.md` (example `jean.character.md`) files as characters
+  - Use the first level title (example : `# Jean`) to identify it
 
 
 ## Extension Settings

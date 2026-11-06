@@ -7,6 +7,7 @@ let indexDataProvider
 /**
  * Activate the command
  * @param {Object} param0 the context
+ * @param {Object} inputIndexDataProvider the data provider used to generate the index
  * @returns the command id
  */
 function activate({ subscriptions }, inputIndexDataProvider) {
