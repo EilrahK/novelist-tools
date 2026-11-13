@@ -3,7 +3,6 @@
 This extension bring some tools for the novelist.
 
 ## Goals
-- Open Character file when clicking on it
 - Character reckognition in the text (coloration)
 - Generator script (tab in new lines, tiret ...)
 - Repetition detector

@@ -21,7 +21,16 @@ class CharactersDataProvider {
      */
     async getTreeItem(element) {
         const collapsibleState = vscode.TreeItemCollapsibleState.None
-        return {label: element.name, collapsibleState, ...element}
+        return {
+            label: element.name,
+            collapsibleState,
+            contextValue: 'character',
+            command: {
+                title:'Open Character',
+                command:'novelist-tools.open-characters',
+                arguments: [{path: element.path}]
+            }
+        }
     }
 
     getParent({ key }) {

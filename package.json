@@ -28,6 +28,10 @@
 				"command": "novelist-tools.refresh-characters",
 				"title": "Refresh the list of characters",
         "icon": "$(refresh)"
+			},
+			{
+				"command": "novelist-tools.open-characters",
+				"title": "Open a character file"
 			}
 		],
 		"viewsContainers": {
@@ -66,6 +70,12 @@
           "command": "novelist-tools.refresh-characters",
           "when": "view == novelistToolsCharacters",
           "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "novelist-tools.open-characters",
+          "when": "view == novelistToolsCharacters && viewItem == character"
         }
       ]
     },

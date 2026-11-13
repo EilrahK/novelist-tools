@@ -3,6 +3,7 @@ const statusWordCounterBarItem = require('./word-counter/status-word-counter.bar
 const sessionWordCounterBarItem = require('./word-counter/session-word-counter.bar-item')
 const indexTreeView = require('./workspace/index.tree-view')
 const characterTreeView = require('./characters/characters-list.tree-view')
+const openCharacterCommand = require('./characters/open-character.command')
 
 /**
  * Master of all, declare all the extension parts.
@@ -13,6 +14,7 @@ function activate(context) {
 	sessionWordCounterBarItem.activate(context)
 	indexTreeView.activate(context)
 	characterTreeView.activate(context)
+	openCharacterCommand.activate(context)
 }
 
 function deactivate() {}
