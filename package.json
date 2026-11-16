@@ -14,6 +14,19 @@
   ],
   "main": "./src/extension.js",
   "contributes": {
+    "semanticTokenTypes": [
+      {
+        "id": "character",
+        "superType": "type",
+        "description": "A character."
+      }
+    ],
+    "semanticTokenModifiers": [
+      {
+        "id": "native",
+        "description": "Annotates a symbol that is implemented natively"
+      }
+    ],
 		"commands": [
 			{
 				"command": "novelist-tools.session-word-counter",

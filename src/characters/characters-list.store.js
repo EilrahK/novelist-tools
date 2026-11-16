@@ -21,10 +21,6 @@ class CharacterList {
         this.characterList.push(character)
     }
 
-    remove(fileName) {
-        
-    }
-
     clean() {
         this.characterList = []
     }

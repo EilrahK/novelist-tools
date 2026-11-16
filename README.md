@@ -3,7 +3,6 @@
 This extension bring some tools for the novelist.
 
 ## Goals
-- Character reckognition in the text (coloration)
 - Generator script (tab in new lines, tiret ...)
 - Repetition detector
 - Add comments and other syntax colorations
@@ -21,6 +20,7 @@ This extension bring some tools for the novelist.
 - Characters list :
   - Handle `*.character.md` (example `jean.character.md`) files as characters
   - Use the first level title (example : `# Jean`) to identify it
+  - The characters are identified in the text by syntax coloration
 
 
 ## Extension Settings
